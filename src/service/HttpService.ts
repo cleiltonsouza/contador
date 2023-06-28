@@ -6,8 +6,8 @@ export class HttpService {
     try {
       const result = await axios.get(uri);
       return result.data;
-    } catch (err) {
-      return err;
+    } catch (err: any) {
+      console.log("Message: ",err?.response?.data, "Status: ", err?.response?.status)
     }
   }
 }
