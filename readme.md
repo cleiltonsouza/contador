@@ -1,4 +1,8 @@
-O objetivo é identificar qual o tamanho das listas são retornadas em payloads:  
+Como executar:  
+``` npm install```  
+``` npm run start:dev```
+
+Este script atende a uma necessidade específica, o objetivo é identificar qual o tamanho das listas são retornadas em payloads:  
 Exemplo de requisição:  
 
 #### POST localhost:8080/
@@ -38,4 +42,4 @@ Como resultado será retornado a contagem de ocorrências das fields passadas pa
     }
 ]
 ```
-
+Deve-se ter a premissa que o caminho dos campos no payload é conhecido, se o campo não existir a contagem retornará 0.
