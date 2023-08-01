@@ -17,9 +17,9 @@ app.post('/fields', async (req: Request, res: Response) => {
   res.send(await countArrayFieldsInResponse(data));
 });
 
-app.post('/endpoints', async (req: Request, res: Response) => {
-  let data = req.body;
-  res.send(await discoveryEndpoints(data.searchString));
+app.get('/endpoints', async (req: Request, res: Response) => {
+  let value = req.query.search
+  res.send(await discoveryEndpoints(value));
 });
 
 app.listen(port, () => {
@@ -43,7 +43,12 @@ async function countArrayFieldsInResponse(body) {
   return values
 }
 
-async function discoveryEndpoints(searchPattern: string) {
+async function discoveryEndpoints(searchPattern) {
+
+  if (typeof searchPattern != 'string') {
+    return "Parâmetro inválido"
+  }
+
   const jsonObject = await httpService.get("https://data.directory.openbankingbrasil.org.br/participants")
 
   function findOccurrences(obj, pattern, occurrences: any[] = []) {

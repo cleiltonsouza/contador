@@ -5,14 +5,10 @@ Como executar:
 Este script atende a uma necessidade específica, o objetivo é identificar qual o tamanho das listas são retornadas em payloads:  
 Exemplo de requisição: 
 
-#### POST /endpoints 
-    - Faz uma busca nos endpoints cadastrados no diretório e retorna os resultados. o campo searchString é o trecho pelo qual deseja pesquisar
-##### Payload da request
-```json
-{
-    "searchString": "personal-accounts"
-}
-```
+#### GET /endpoints?search=
+    - Faz uma busca nos endpoints cadastrados no diretório e retorna os resultados. o campo search é o texto pelo qual deseja pesquisar
+    - Por exemplo: /endpoints?search=personal-accounts irá buscar todas as ocorrências de 'personal-accounts' e retornará a lista de endpoints que contém o texto pesquisado
+
 ##### Payload de resposta
 ```json
 [
