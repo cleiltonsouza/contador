@@ -3,9 +3,31 @@ Como executar:
 ``` npm run start:dev```
 
 Este script atende a uma necessidade específica, o objetivo é identificar qual o tamanho das listas são retornadas em payloads:  
-Exemplo de requisição:  
+Exemplo de requisição: 
 
-#### POST localhost:8080/
+#### POST /endpoints 
+    - Faz uma busca nos endpoints cadastrados no diretório e retorna os resultados. o campo searchString é o trecho pelo qual deseja pesquisar
+##### Payload da request
+```json
+{
+    "searchString": "personal-accounts"
+}
+```
+##### Payload de resposta
+```json
+[
+    "https://api.itau/open-banking/products-services/v1/personal-accounts",
+    "https://api.sulcredi.coop.br/open-banking/products-services/v1/personal-accounts",
+    "https://opendata.api.bb.com.br/open-banking/products-services/v1/personal-accounts",
+    "https://api-openbanking.bancopan.com.br/open-banking/products-services/v1/personal-accounts",
+    "https://api.bradesco.com/Next/open-banking/products-services/v1/personal-accounts",
+    "https://api.bradesco.com/bradesco/open-banking/products-services/v1/personal-accounts",
+    "https://banking-openfinance.xpi.com.br/open-banking/products-services/v1/personal-accounts",
+    "https://banking-openfinance.rico.com.vc/open-banking/products-services/v1/personal-accounts"
+]
+```
+#### POST /fields
+##### Payload da request
 ```json
 {
     "urls": [
@@ -21,7 +43,7 @@ Exemplo de requisição:
 ```
 Como resultado será retornado a contagem de ocorrências das fields passadas para cada uma das respostas das chamadas nas urls:
 
-
+##### Payload de resposta
 ```json
 [
     {
