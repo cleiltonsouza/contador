@@ -60,4 +60,6 @@ Como resultado será retornado a contagem de ocorrências das fields passadas pa
     }
 ]
 ```
-Deve-se ter a premissa que o caminho dos campos no payload é conhecido, se o campo não existir a contagem retornará 0.
+Pontos de atençao:  
+Deve-se ter a premissa que o caminho dos campos no payload é conhecido, se o campo não existir a contagem retornará 0.  
+A implementação atual não prevê o cenário em que se existe paginação da resposta, ou seja, o script realiza a contagem do payload de resposta da primeira requisição. Um possível contorno é enviar na listagem de urls os links com a paginação aplicada.
